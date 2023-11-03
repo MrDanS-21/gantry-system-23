@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body class="dark-mode">
+    <div class="secondary-background">
+        <h1>Hello, World!</h1>
+        <p class="secondary-text">This is a paragraph with secondary text color.</p>
+    </div>
+    <div class="tertiary-background primary-border">
+        <h2 class="secondary-text">This is a subheading inside a tertiary background with primary border.</h2>
+    </div>
+    <a href="#">This is a link</a>
+    <button class="button">This is a primary button</button>
+    <button class="secondary-button">This is a secondary button</button>
+    <div class="flash-message">
+        This is a flash message.
+    </div>
+    <div class="error-message">
+        This is a standard error message.
+    </div>
+    <div class="error-message-flash">
+        This is a flash error message.
+    </div>
+    <br><br>
+    <div id="theme-selector">
+        <button class="theme-button dark-mode" data-theme="dark-mode">Dark Mode</button>
+        <button class="theme-button light-mode" data-theme="light-mode">Light Mode</button>
+        <button class="theme-button deep-ocean" data-theme="deep-ocean">Deep Ocean</button>
+        <button class="theme-button dark-plus" data-theme="dark-plus">Dark Plus</button>
+        <button class="theme-button blazing-ember" data-theme="blazing-ember">Blazing Ember</button>
+        <button class="theme-button twilight-mirage" data-theme="twilight-mirage">Twilight Mirage</button>
+        <button class="theme-button sunny-serenity" data-theme="sunny-serenity">Sunny Serenity</button>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li class="flash">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+<script src="{{ url_for('static', filename='js/theme_select.js') }}"></script>
+</html>

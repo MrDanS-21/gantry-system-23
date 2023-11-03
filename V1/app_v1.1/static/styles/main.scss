@@ -1,0 +1,477 @@
+//sass --watch static/styles/main.scss static/styles/main.css
+
+$semiTransparentBackgroundFlash: 0.75;
+$semiTransparentBackgroundError: 0.75;
+
+body {
+    margin: 2.5vw;
+
+    * {
+        padding: 10px;
+        border-radius: 5px;
+        width: fit-content;
+    }
+}
+
+.center-horr {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-vert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* if your div has a fixed width and height */
+}
+
+.flash-message, .error-message-flash{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: auto;
+    margin: 1.5vw;
+    padding: 20px;
+    z-index: 9999;
+    display: none;
+}
+
+#logo {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.page-width {
+    width: auto;
+    height: auto;
+}
+
+.page-height {
+    height: calc(100vh - 5vw - 20px);
+}
+
+.pfp-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+.round-pfp {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+}
+
+.img-container {
+    width: 100%;
+    padding-bottom: 75%;
+    position: relative;
+    overflow: hidden; /* this ensures that if the image is larger than the container, it gets cropped */
+    box-sizing: border-box;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        object-fit: cover; // Ensure the entire image is shown without cropping
+    }
+}
+
+form {
+    width: 320px;
+}
+
+input:not([type="submit"]):not([type="checkbox"]) {
+    width: 200px;
+    height: 2vh;
+    display: inline-block;
+}
+
+input[type="submit"] {
+    width: 100px;
+    height: 2vh;
+    box-sizing: content-box;
+}
+
+label {
+    width: 22.5%;
+    display: inline-block;
+    text-align: right;
+}
+
+.discover-button {
+    width: calc(25% - 20px);
+    margin: 10px
+}
+
+.borderless {
+    margin: 0px;
+    padding: 0px;
+}
+
+textarea {
+    resize: vertical;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+
+    &-track {
+        background: transparent;
+    }
+
+    &-thumb {
+        border: 3px solid transparent;
+        background-clip: padding-box;
+    }
+}
+
+.split-view-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .monitor-section {
+        flex: 1;  // This will allow dynamic resizing
+        min-width: 0;  // Prevent overflow
+        max-width: 50%;  // Set a max width to ensure it never exceeds half the parent
+        box-sizing: border-box;
+
+        textarea {
+            height: 68vh;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form {
+            width: 100%;
+            box-sizing: border-box;
+
+            input[type="text"] {
+                width: calc(80% - 25px);
+                vertical-align: top;
+            }
+
+            input[type="submit"] {
+                width: calc(20% - 25px);
+                vertical-align: top;
+                float: right;
+            }
+        }
+    }
+
+    .full-width {
+        max-width: 100%;
+    }
+}
+
+$themes: (
+    dark-mode: (
+        bg: #1A1A2E,
+        color: #E0E0E0,
+        secondary-bg: #16213E,
+        tertiary-bg: #0F172A,
+        link: #3D85C6,
+        link-hover: #6D9EEB,
+        button: #0B5394,
+        button-text: #E0E0E0,
+        button-hover: #3D85C6,
+        button-active: #264653,
+        secondary-button: #264653,
+        secondary-button-text: #E0E0E0,
+        secondary-button-hover: #3D85C6,
+        secondary-button-active: #0B5394,
+        primary-border: #3C7A89,
+        secondary-border: #264653,
+        secondary-text: #B3B3B3,
+        tertiary-text: #808080,
+        flash-message: rgba(109, 158, 235, 0.75),
+        flash-message-text: #1A1A2E,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #E0E0E0,
+        input-bg: #1A1A2E,
+        input-border: #3D85C6,
+        input-color: #E0E0E0
+    ),
+    light-mode: (
+        bg: #F5F5F5,
+        color: #333333,
+        secondary-bg: #E8E8E8,
+        tertiary-bg: #DCDCDC,
+        link: #808080,
+        link-hover: #FFFF00,
+        button: #FFA500,
+        button-text: #333333,
+        button-hover: #FFFF00,
+        button-active: #FFA500,
+        secondary-button: #696969,
+        secondary-button-text: #333333,
+        secondary-button-hover: #FFFF00,
+        secondary-button-active: #FFA500,
+        primary-border: #A9A9A9,
+        secondary-border: #696969,
+        secondary-text: #666666,
+        tertiary-text: #999999,
+        flash-message: rgba(255, 255, 0, 0.75),
+        flash-message-text: #333333,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #333333,
+        input-bg: #F7F9FB,
+        input-border: 1px solid #9E9E9E,
+        input-color: #424242
+    ),
+    deep-ocean: (
+        bg: #02031A,
+        color: #D9F0FF,
+        secondary-bg: #020C37,
+        tertiary-bg: #012639,
+        link: #07A9DF,
+        link-hover: #00A6FB,
+        button: #028090,
+        button-text: #D9F0FF,
+        button-hover: #07A9DF,
+        button-active: #033649,
+        secondary-button: #033649,
+        secondary-button-text: #D9F0FF,
+        secondary-button-hover: #07A9DF,
+        secondary-button-active: #028090,
+        primary-border: #03738C,
+        secondary-border: #033649,
+        secondary-text: #A4C7D7,
+        tertiary-text: #7192A0,
+        flash-message: rgba(0, 166, 251, 0.75),
+        flash-message-text: #02031A,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #D9F0FF,
+        input-bg: #0A2239,
+        input-border: 1px solid #1F4287,
+        input-color: #E0E1DD
+    ),
+    dark-plus: (
+        bg: #121212,
+        color: #E0E0E0,
+        secondary-bg: #1A1A1A,
+        tertiary-bg: #222222,
+        link: #808080,
+        link-hover: #B3B3B3,
+        button: #333333,
+        button-text: #E0E0E0,
+        button-hover: #4D4D4D,
+        button-active: #262626,
+        secondary-button: #262626,
+        secondary-button-text: #E0E0E0,
+        secondary-button-hover: #4D4D4D,
+        secondary-button-active: #333333,
+        primary-border: #333333,
+        secondary-border: #262626,
+        secondary-text: #B3B3B3,
+        tertiary-text: #808080,
+        flash-message: rgba(77, 77, 77, 0.75),
+        flash-message-text: #121212,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #E0E0E0,
+        input-bg: #181A1B,
+        input-border: #3C3C3C,
+        input-color: #BFBFBF,
+    ),
+    
+    blazing-ember: (
+        bg: #FFEEDD,
+        color: #3C1518,
+        secondary-bg: #FFC49B,
+        tertiary-bg: #FF922B,
+        link: #FF5500,
+        link-hover: #D81E05,
+        button: #A63C06,
+        button-text: #FFEEDD,
+        button-hover: #FF5500,
+        button-active: #3C1518,
+        secondary-button: #3C1518,
+        secondary-button-text: #FFEEDD,
+        secondary-button-hover: #FF5500,
+        secondary-button-active: #A63C06,
+        primary-border: #FF5500,
+        secondary-border: #3C1518,
+        secondary-text: #A63C06,
+        tertiary-text: #FF5500,
+        flash-message: rgba(255, 100, 10, 0.75),
+        flash-message-text: #FFEEDD,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #3C1518,
+        input-bg: #FEE7D1,
+        input-border: #F98866,
+        input-color: #803A17,
+    ),
+
+    twilight-mirage: (
+        bg: #1F2041,
+        color: #4B3F72,
+        secondary-bg: #4B3F72,
+        tertiary-bg: #836FA9,
+        link: #EE82EE,
+        link-hover: #D8BFD8,
+        button: #EE82EE,
+        button-text: #1F2041,
+        button-hover: #D8BFD8,
+        button-active: #836FA9,
+        secondary-button: #836FA9,
+        secondary-button-text: #1F2041,
+        secondary-button-hover: #D8BFD8,
+        secondary-button-active: #EE82EE,
+        primary-border: #EE82EE,
+        secondary-border: #836FA9,
+        secondary-text: #C9C9FF,
+        tertiary-text: #D8BFD8,
+        flash-message: rgba(238, 130, 238, 0.75),
+        flash-message-text: #1F2041,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #4B3F72,
+        input-bg: #1F2041,
+        input-border: #EE82EE,
+        input-color: #4B3F72,
+    ),
+    
+    sunny-serenity: (
+        bg: #FDF6F0,
+        color: #407088,
+        secondary-bg: #F6F1D1,
+        tertiary-bg: #CBE3D7,
+        link: #C28D4B,
+        link-hover: #9F7A63,
+        button: #9F7A63,
+        button-text: #FDF6F0,
+        button-hover: #C28D4B,
+        button-active: #407088,
+        secondary-button: #407088,
+        secondary-button-text: #FDF6F0,
+        secondary-button-hover: #C28D4B,
+        secondary-button-active: #9F7A63,
+        primary-border: #9F7A63,
+        secondary-border: #407088,
+        secondary-text: #6C838E,
+        tertiary-text: #9F7A63,
+        flash-message: rgba(159, 122, 99, 0.75),
+        flash-message-text: #FDF6F0,
+        error-message: rgba(255, 0, 0, 0.75),
+        error-message-text: #407088,
+        input-bg: #FDF6F0,
+        input-border: #9F7A63,
+        input-color: #407088,
+    ),
+);
+
+@mixin theme($name, $map) {
+    body.#{$name} {
+        background-color: map-get($map, bg);
+        color: map-get($map, color);
+    
+        .secondary-background {
+            background-color: map-get($map, secondary-bg);
+        }
+    
+        .tertiary-background {
+            background-color: map-get($map, tertiary-bg);
+        }
+    
+        a {
+            color: map-get($map, link);
+            transition: color 0.3s ease;
+      
+            &:hover {
+                color: map-get($map, link-hover);
+            }
+        }
+    
+        button, .button {
+            background-color: map-get($map, button);
+            border: none;
+            color: map-get($map, button-text);
+            transition: background-color 0.3s ease;
+      
+            &:hover, &.button-selected {
+                background-color: map-get($map, button-hover);
+            }
+      
+            &:active {
+                background-color: map-get($map, button-active);
+            }
+        }
+    
+        .secondary-button {
+            background-color: map-get($map, secondary-button);
+            color: map-get($map, secondary-button-color);
+            transition: background-color 0.3s ease;
+      
+            &:hover {
+                background-color: map-get($map, secondary-button-hover);
+            }
+      
+            &:active {
+                background-color: map-get($map, secondary-button-active);
+            }
+        }
+    
+        .primary-border {
+            border: 1px solid map-get($map, primary-border);
+        }
+    
+        .secondary-border {
+            border: 1px solid map-get($map, secondary-border);
+        }
+    
+        .secondary-text {
+            color: map-get($map, secondary-text);
+        }
+    
+        .tertiary-text {
+            color: map-get($map, tertiary-text);
+        }
+    
+        .flash-message {
+            background-color: map-get($map, flash-message);
+            color: map-get($map, flash-message-text);
+        }
+    
+        .error-message, .error-message-flash {
+            background-color: map-get($map, error-message);
+            color: map-get($map, error-message-text);
+        }
+    
+        input {
+            background-color: map-get($map, input-bg);
+            border: 1px solid map-get($map, input-border);
+            color: map-get($map, input-color);
+        }
+
+        textarea {
+            background-color: map-get($map, input-bg);
+            border: 1px solid map-get($map, input-border);
+            color: map-get($map, input-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: map-get($map, input-border);
+
+            &:hover {
+                background: map-get($map, primary-border);
+            }
+        }
+    }
+}
+
+// Loop through each theme in the themes map
+@each $theme, $map in $themes {
+    @include theme($theme, $map);
+}

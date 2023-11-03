@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Serial Moniter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/serial.js') }}"></script>
+</head>
+<body class="dark-mode">
+    <div class="secondary-background primary-border page-width">
+        <div class="page-width borderless">
+            <div style="padding-bottom: 0px; margin-left: 10px;">
+                <label for="serverCheckbox" class="borderless" style="width: auto">Server Monitor:</label>
+                <input type="checkbox" id="serverCheckbox" class="borderless">
+            </div>
+            
+            <div class="split-view-container borderless">
+                <div id="arduinoSection" class="monitor-section full-width">
+                    <div class="page-width">
+                        <textarea id="serialOutput" class="center-horr" readonly></textarea>
+                    </div>
+                    <form id="sendDataForm" class="page-width" action="/serial_monitor" method="POST" autocomplete="off">
+                        <input type="text" name="data_to_send" placeholder="Send data to Arduino...">
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+                <div id="serverSection" class="monitor-section" style="display: none">
+                    <div class="page-width">
+                        <textarea id="serverOutput" class="center-horr" readonly></textarea>
+                    </div>
+                    <form id="sendServerDataForm" class="page-width" action="/server_monitor" method="POST" autocomplete="off">
+                        <input type="text" name="data_to_server" placeholder="Send data to Server...">
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

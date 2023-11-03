@@ -1,0 +1,697 @@
+body {
+  margin: 2.5vw;
+}
+body * {
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.center-horr {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-vert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* if your div has a fixed width and height */
+}
+
+.flash-message, .error-message-flash {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: auto;
+  margin: 1.5vw;
+  padding: 20px;
+  z-index: 9999;
+  display: none;
+}
+
+#logo {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.page-width {
+  width: auto;
+  height: auto;
+}
+
+.page-height {
+  height: calc(100vh - 5vw - 20px);
+}
+
+.pfp-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.round-pfp {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+}
+
+.img-container {
+  width: 100%;
+  padding-bottom: 75%;
+  position: relative;
+  overflow: hidden; /* this ensures that if the image is larger than the container, it gets cropped */
+  box-sizing: border-box;
+}
+.img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  object-fit: cover;
+}
+
+form {
+  width: 320px;
+}
+
+input:not([type=submit]):not([type=checkbox]) {
+  width: 200px;
+  height: 2vh;
+  display: inline-block;
+}
+
+input[type=submit] {
+  width: 100px;
+  height: 2vh;
+  box-sizing: content-box;
+}
+
+label {
+  width: 22.5%;
+  display: inline-block;
+  text-align: right;
+}
+
+.discover-button {
+  width: calc(25% - 20px);
+  margin: 10px;
+}
+
+.borderless {
+  margin: 0px;
+  padding: 0px;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.split-view-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.split-view-container .monitor-section {
+  flex: 1;
+  min-width: 0;
+  max-width: 50%;
+  box-sizing: border-box;
+}
+.split-view-container .monitor-section textarea {
+  height: 68vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+.split-view-container .monitor-section form {
+  width: 100%;
+  box-sizing: border-box;
+}
+.split-view-container .monitor-section form input[type=text] {
+  width: calc(80% - 25px);
+  vertical-align: top;
+}
+.split-view-container .monitor-section form input[type=submit] {
+  width: calc(20% - 25px);
+  vertical-align: top;
+  float: right;
+}
+.split-view-container .full-width {
+  max-width: 100%;
+}
+
+body.dark-mode {
+  background-color: #1A1A2E;
+  color: #E0E0E0;
+}
+body.dark-mode .secondary-background {
+  background-color: #16213E;
+}
+body.dark-mode .tertiary-background {
+  background-color: #0F172A;
+}
+body.dark-mode a {
+  color: #3D85C6;
+  transition: color 0.3s ease;
+}
+body.dark-mode a:hover {
+  color: #6D9EEB;
+}
+body.dark-mode button, body.dark-mode .button {
+  background-color: #0B5394;
+  border: none;
+  color: #E0E0E0;
+  transition: background-color 0.3s ease;
+}
+body.dark-mode button:hover, body.dark-mode button.button-selected, body.dark-mode .button:hover, body.dark-mode .button.button-selected {
+  background-color: #3D85C6;
+}
+body.dark-mode button:active, body.dark-mode .button:active {
+  background-color: #264653;
+}
+body.dark-mode .secondary-button {
+  background-color: #264653;
+  transition: background-color 0.3s ease;
+}
+body.dark-mode .secondary-button:hover {
+  background-color: #3D85C6;
+}
+body.dark-mode .secondary-button:active {
+  background-color: #0B5394;
+}
+body.dark-mode .primary-border {
+  border: 1px solid #3C7A89;
+}
+body.dark-mode .secondary-border {
+  border: 1px solid #264653;
+}
+body.dark-mode .secondary-text {
+  color: #B3B3B3;
+}
+body.dark-mode .tertiary-text {
+  color: #808080;
+}
+body.dark-mode .flash-message {
+  background-color: rgba(109, 158, 235, 0.75);
+  color: #1A1A2E;
+}
+body.dark-mode .error-message, body.dark-mode .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #E0E0E0;
+}
+body.dark-mode input {
+  background-color: #1A1A2E;
+  border: 1px solid #3D85C6;
+  color: #E0E0E0;
+}
+body.dark-mode textarea {
+  background-color: #1A1A2E;
+  border: 1px solid #3D85C6;
+  color: #E0E0E0;
+}
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #3D85C6;
+}
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #3C7A89;
+}
+
+body.light-mode {
+  background-color: #F5F5F5;
+  color: #333333;
+}
+body.light-mode .secondary-background {
+  background-color: #E8E8E8;
+}
+body.light-mode .tertiary-background {
+  background-color: #DCDCDC;
+}
+body.light-mode a {
+  color: #808080;
+  transition: color 0.3s ease;
+}
+body.light-mode a:hover {
+  color: #FFFF00;
+}
+body.light-mode button, body.light-mode .button {
+  background-color: #FFA500;
+  border: none;
+  color: #333333;
+  transition: background-color 0.3s ease;
+}
+body.light-mode button:hover, body.light-mode button.button-selected, body.light-mode .button:hover, body.light-mode .button.button-selected {
+  background-color: #FFFF00;
+}
+body.light-mode button:active, body.light-mode .button:active {
+  background-color: #FFA500;
+}
+body.light-mode .secondary-button {
+  background-color: #696969;
+  transition: background-color 0.3s ease;
+}
+body.light-mode .secondary-button:hover {
+  background-color: #FFFF00;
+}
+body.light-mode .secondary-button:active {
+  background-color: #FFA500;
+}
+body.light-mode .primary-border {
+  border: 1px solid #A9A9A9;
+}
+body.light-mode .secondary-border {
+  border: 1px solid #696969;
+}
+body.light-mode .secondary-text {
+  color: #666666;
+}
+body.light-mode .tertiary-text {
+  color: #999999;
+}
+body.light-mode .flash-message {
+  background-color: rgba(255, 255, 0, 0.75);
+  color: #333333;
+}
+body.light-mode .error-message, body.light-mode .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #333333;
+}
+body.light-mode input {
+  background-color: #F7F9FB;
+  border: 1px solid 1px solid #9E9E9E;
+  color: #424242;
+}
+body.light-mode textarea {
+  background-color: #F7F9FB;
+  border: 1px solid 1px solid #9E9E9E;
+  color: #424242;
+}
+body.light-mode ::-webkit-scrollbar-thumb {
+  background: 1px solid #9E9E9E;
+}
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: #A9A9A9;
+}
+
+body.deep-ocean {
+  background-color: #02031A;
+  color: #D9F0FF;
+}
+body.deep-ocean .secondary-background {
+  background-color: #020C37;
+}
+body.deep-ocean .tertiary-background {
+  background-color: #012639;
+}
+body.deep-ocean a {
+  color: #07A9DF;
+  transition: color 0.3s ease;
+}
+body.deep-ocean a:hover {
+  color: #00A6FB;
+}
+body.deep-ocean button, body.deep-ocean .button {
+  background-color: #028090;
+  border: none;
+  color: #D9F0FF;
+  transition: background-color 0.3s ease;
+}
+body.deep-ocean button:hover, body.deep-ocean button.button-selected, body.deep-ocean .button:hover, body.deep-ocean .button.button-selected {
+  background-color: #07A9DF;
+}
+body.deep-ocean button:active, body.deep-ocean .button:active {
+  background-color: #033649;
+}
+body.deep-ocean .secondary-button {
+  background-color: #033649;
+  transition: background-color 0.3s ease;
+}
+body.deep-ocean .secondary-button:hover {
+  background-color: #07A9DF;
+}
+body.deep-ocean .secondary-button:active {
+  background-color: #028090;
+}
+body.deep-ocean .primary-border {
+  border: 1px solid #03738C;
+}
+body.deep-ocean .secondary-border {
+  border: 1px solid #033649;
+}
+body.deep-ocean .secondary-text {
+  color: #A4C7D7;
+}
+body.deep-ocean .tertiary-text {
+  color: #7192A0;
+}
+body.deep-ocean .flash-message {
+  background-color: rgba(0, 166, 251, 0.75);
+  color: #02031A;
+}
+body.deep-ocean .error-message, body.deep-ocean .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #D9F0FF;
+}
+body.deep-ocean input {
+  background-color: #0A2239;
+  border: 1px solid 1px solid #1F4287;
+  color: #E0E1DD;
+}
+body.deep-ocean textarea {
+  background-color: #0A2239;
+  border: 1px solid 1px solid #1F4287;
+  color: #E0E1DD;
+}
+body.deep-ocean ::-webkit-scrollbar-thumb {
+  background: 1px solid #1F4287;
+}
+body.deep-ocean ::-webkit-scrollbar-thumb:hover {
+  background: #03738C;
+}
+
+body.dark-plus {
+  background-color: #121212;
+  color: #E0E0E0;
+}
+body.dark-plus .secondary-background {
+  background-color: #1A1A1A;
+}
+body.dark-plus .tertiary-background {
+  background-color: #222222;
+}
+body.dark-plus a {
+  color: #808080;
+  transition: color 0.3s ease;
+}
+body.dark-plus a:hover {
+  color: #B3B3B3;
+}
+body.dark-plus button, body.dark-plus .button {
+  background-color: #333333;
+  border: none;
+  color: #E0E0E0;
+  transition: background-color 0.3s ease;
+}
+body.dark-plus button:hover, body.dark-plus button.button-selected, body.dark-plus .button:hover, body.dark-plus .button.button-selected {
+  background-color: #4D4D4D;
+}
+body.dark-plus button:active, body.dark-plus .button:active {
+  background-color: #262626;
+}
+body.dark-plus .secondary-button {
+  background-color: #262626;
+  transition: background-color 0.3s ease;
+}
+body.dark-plus .secondary-button:hover {
+  background-color: #4D4D4D;
+}
+body.dark-plus .secondary-button:active {
+  background-color: #333333;
+}
+body.dark-plus .primary-border {
+  border: 1px solid #333333;
+}
+body.dark-plus .secondary-border {
+  border: 1px solid #262626;
+}
+body.dark-plus .secondary-text {
+  color: #B3B3B3;
+}
+body.dark-plus .tertiary-text {
+  color: #808080;
+}
+body.dark-plus .flash-message {
+  background-color: rgba(77, 77, 77, 0.75);
+  color: #121212;
+}
+body.dark-plus .error-message, body.dark-plus .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #E0E0E0;
+}
+body.dark-plus input {
+  background-color: #181A1B;
+  border: 1px solid #3C3C3C;
+  color: #BFBFBF;
+}
+body.dark-plus textarea {
+  background-color: #181A1B;
+  border: 1px solid #3C3C3C;
+  color: #BFBFBF;
+}
+body.dark-plus ::-webkit-scrollbar-thumb {
+  background: #3C3C3C;
+}
+body.dark-plus ::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+body.blazing-ember {
+  background-color: #FFEEDD;
+  color: #3C1518;
+}
+body.blazing-ember .secondary-background {
+  background-color: #FFC49B;
+}
+body.blazing-ember .tertiary-background {
+  background-color: #FF922B;
+}
+body.blazing-ember a {
+  color: #FF5500;
+  transition: color 0.3s ease;
+}
+body.blazing-ember a:hover {
+  color: #D81E05;
+}
+body.blazing-ember button, body.blazing-ember .button {
+  background-color: #A63C06;
+  border: none;
+  color: #FFEEDD;
+  transition: background-color 0.3s ease;
+}
+body.blazing-ember button:hover, body.blazing-ember button.button-selected, body.blazing-ember .button:hover, body.blazing-ember .button.button-selected {
+  background-color: #FF5500;
+}
+body.blazing-ember button:active, body.blazing-ember .button:active {
+  background-color: #3C1518;
+}
+body.blazing-ember .secondary-button {
+  background-color: #3C1518;
+  transition: background-color 0.3s ease;
+}
+body.blazing-ember .secondary-button:hover {
+  background-color: #FF5500;
+}
+body.blazing-ember .secondary-button:active {
+  background-color: #A63C06;
+}
+body.blazing-ember .primary-border {
+  border: 1px solid #FF5500;
+}
+body.blazing-ember .secondary-border {
+  border: 1px solid #3C1518;
+}
+body.blazing-ember .secondary-text {
+  color: #A63C06;
+}
+body.blazing-ember .tertiary-text {
+  color: #FF5500;
+}
+body.blazing-ember .flash-message {
+  background-color: rgba(255, 100, 10, 0.75);
+  color: #FFEEDD;
+}
+body.blazing-ember .error-message, body.blazing-ember .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #3C1518;
+}
+body.blazing-ember input {
+  background-color: #FEE7D1;
+  border: 1px solid #F98866;
+  color: #803A17;
+}
+body.blazing-ember textarea {
+  background-color: #FEE7D1;
+  border: 1px solid #F98866;
+  color: #803A17;
+}
+body.blazing-ember ::-webkit-scrollbar-thumb {
+  background: #F98866;
+}
+body.blazing-ember ::-webkit-scrollbar-thumb:hover {
+  background: #FF5500;
+}
+
+body.twilight-mirage {
+  background-color: #1F2041;
+  color: #4B3F72;
+}
+body.twilight-mirage .secondary-background {
+  background-color: #4B3F72;
+}
+body.twilight-mirage .tertiary-background {
+  background-color: #836FA9;
+}
+body.twilight-mirage a {
+  color: #EE82EE;
+  transition: color 0.3s ease;
+}
+body.twilight-mirage a:hover {
+  color: #D8BFD8;
+}
+body.twilight-mirage button, body.twilight-mirage .button {
+  background-color: #EE82EE;
+  border: none;
+  color: #1F2041;
+  transition: background-color 0.3s ease;
+}
+body.twilight-mirage button:hover, body.twilight-mirage button.button-selected, body.twilight-mirage .button:hover, body.twilight-mirage .button.button-selected {
+  background-color: #D8BFD8;
+}
+body.twilight-mirage button:active, body.twilight-mirage .button:active {
+  background-color: #836FA9;
+}
+body.twilight-mirage .secondary-button {
+  background-color: #836FA9;
+  transition: background-color 0.3s ease;
+}
+body.twilight-mirage .secondary-button:hover {
+  background-color: #D8BFD8;
+}
+body.twilight-mirage .secondary-button:active {
+  background-color: #EE82EE;
+}
+body.twilight-mirage .primary-border {
+  border: 1px solid #EE82EE;
+}
+body.twilight-mirage .secondary-border {
+  border: 1px solid #836FA9;
+}
+body.twilight-mirage .secondary-text {
+  color: #C9C9FF;
+}
+body.twilight-mirage .tertiary-text {
+  color: #D8BFD8;
+}
+body.twilight-mirage .flash-message {
+  background-color: rgba(238, 130, 238, 0.75);
+  color: #1F2041;
+}
+body.twilight-mirage .error-message, body.twilight-mirage .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #4B3F72;
+}
+body.twilight-mirage input {
+  background-color: #1F2041;
+  border: 1px solid #EE82EE;
+  color: #4B3F72;
+}
+body.twilight-mirage textarea {
+  background-color: #1F2041;
+  border: 1px solid #EE82EE;
+  color: #4B3F72;
+}
+body.twilight-mirage ::-webkit-scrollbar-thumb {
+  background: #EE82EE;
+}
+body.twilight-mirage ::-webkit-scrollbar-thumb:hover {
+  background: #EE82EE;
+}
+
+body.sunny-serenity {
+  background-color: #FDF6F0;
+  color: #407088;
+}
+body.sunny-serenity .secondary-background {
+  background-color: #F6F1D1;
+}
+body.sunny-serenity .tertiary-background {
+  background-color: #CBE3D7;
+}
+body.sunny-serenity a {
+  color: #C28D4B;
+  transition: color 0.3s ease;
+}
+body.sunny-serenity a:hover {
+  color: #9F7A63;
+}
+body.sunny-serenity button, body.sunny-serenity .button {
+  background-color: #9F7A63;
+  border: none;
+  color: #FDF6F0;
+  transition: background-color 0.3s ease;
+}
+body.sunny-serenity button:hover, body.sunny-serenity button.button-selected, body.sunny-serenity .button:hover, body.sunny-serenity .button.button-selected {
+  background-color: #C28D4B;
+}
+body.sunny-serenity button:active, body.sunny-serenity .button:active {
+  background-color: #407088;
+}
+body.sunny-serenity .secondary-button {
+  background-color: #407088;
+  transition: background-color 0.3s ease;
+}
+body.sunny-serenity .secondary-button:hover {
+  background-color: #C28D4B;
+}
+body.sunny-serenity .secondary-button:active {
+  background-color: #9F7A63;
+}
+body.sunny-serenity .primary-border {
+  border: 1px solid #9F7A63;
+}
+body.sunny-serenity .secondary-border {
+  border: 1px solid #407088;
+}
+body.sunny-serenity .secondary-text {
+  color: #6C838E;
+}
+body.sunny-serenity .tertiary-text {
+  color: #9F7A63;
+}
+body.sunny-serenity .flash-message {
+  background-color: rgba(159, 122, 99, 0.75);
+  color: #FDF6F0;
+}
+body.sunny-serenity .error-message, body.sunny-serenity .error-message-flash {
+  background-color: rgba(255, 0, 0, 0.75);
+  color: #407088;
+}
+body.sunny-serenity input {
+  background-color: #FDF6F0;
+  border: 1px solid #9F7A63;
+  color: #407088;
+}
+body.sunny-serenity textarea {
+  background-color: #FDF6F0;
+  border: 1px solid #9F7A63;
+  color: #407088;
+}
+body.sunny-serenity ::-webkit-scrollbar-thumb {
+  background: #9F7A63;
+}
+body.sunny-serenity ::-webkit-scrollbar-thumb:hover {
+  background: #9F7A63;
+}
+
+/*# sourceMappingURL=main.css.map */

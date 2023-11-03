@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />    
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body class="dark-mode">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li class="flash">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="secondary-background primary-border page-width">
+        <h1 style="margin-left: 10px">Current Stock</h1>
+        <div class="page-width">
+            {% for entry in data %}
+                <div class="tertiary-background secondary-border" style="box-sizing: border-box; width: calc((100% / 4) - 23px); display: inline-block; margin: 10px">
+                    <div class="img-container">
+                        <img src="{{ url_for('static', filename='img/' + entry.uid|string + '.png') }}" alt={{ entry.uid }}>
+                    </div>
+                    <h1 style="margin: 0">{{ entry.uid }}</h1>
+                    <h3 style="margin: 0">{{ entry.catagory }}</h3>
+                    <h3 style="margin: 0">{{ entry.owner }}</h3>
+                    <p style="margin: 0; height: 37px">{{ entry.description }}</p>
+                    <p style="margin: 0">{{ entry.timein }}</p>
+                    <form action="/warehouse/{{ entry.uid }}" method="post" class="borderless" style="width: 100%">
+                        <button type="submit" style="width:100%">Export</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
